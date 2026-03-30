@@ -1,0 +1,56 @@
+- id: fmt
+  name: fmt
+  description: Format files with cargo fmt.
+  entry: cargo fmt --
+  language: system
+  files: \.rs$
+  args: []
+- id: check
+  name: cargo check
+  description: Check the package for errors.
+  entry: cargo check
+  language: system
+  files: \.rs$
+  pass_filenames: false
+- id: clippy
+  name: clippy
+  description: Lint rust sources.
+  entry: cargo clippy -- -D warnings
+  language: system
+  files: \.rs$
+  pass_filenames: false
+- id: test
+  name: cargo test
+  description: Run the test suite with cargo test.
+  entry: cargo test
+  language: system
+  files: \.rs$
+  pass_filenames: false
+- id: audit
+  name: cargo audit
+  description: Audit Cargo.lock for crates with security vulnerabilities. Requires cargo-audit (cargo install cargo-audit).
+  entry: cargo audit
+  language: system
+  pass_filenames: false
+  files: Cargo\.lock
+- id: deny
+  name: cargo deny
+  description: Check licenses, bans, advisories, and sources for dependencies. Requires cargo-deny (cargo install cargo-deny).
+  entry: cargo deny check
+  language: system
+  pass_filenames: false
+  files: Cargo\.(toml|lock)
+- id: sort
+  name: cargo sort
+  description: Sort Cargo.toml dependency tables alphabetically. Requires cargo-sort (cargo install cargo-sort).
+  entry: cargo sort
+  language: system
+  pass_filenames: false
+  files: Cargo\.toml
+- id: machete
+  name: cargo machete
+  description: Find unused dependencies in Cargo.toml. Requires cargo-machete (cargo install cargo-machete).
+  entry: cargo machete
+  language: system
+  pass_filenames: false
+  files: Cargo\.toml
