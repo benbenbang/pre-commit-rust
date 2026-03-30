@@ -21,7 +21,7 @@ permissions:
 jobs:
   semantic-release:
     if: github.event.inputs.prompt == 'true'
-    uses: ${{ github.repository }}/.github/workflows/reusable-sr.yml@workflows
+    uses: benbenbang/pre-commit-rust/.github/workflows/reusable-sr.yml@workflows
     secrets: inherit
 
   update-release-title:
